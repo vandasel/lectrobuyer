@@ -1,0 +1,6 @@
+{
+    "x-kom" : {
+        "button" : "//button[@data-name='AcceptPermissionButton']",
+        "price" : "//*[@id='app']//div[contains(@data-name,'buybox')]/div/div/span"
+    }
+}
