@@ -11,11 +11,11 @@ def button_callback():
 
 
 app = ctk.CTk()
-app.geometry("400x600")
+app.geometry("400x200")
 app.title("URL")
 
 
-text = ctk.CTkTextbox(app, width=300, height=200)
+text = ctk.CTkTextbox(app, width=300, height=50)
 text.pack(padx=20, pady=20)
 
 
