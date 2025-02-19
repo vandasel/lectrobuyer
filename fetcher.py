@@ -23,7 +23,7 @@ class ElectroImporter:
         print(f"Error: mapping.json not found at {json_path}")
         sys.exit(1)  
 
-    REGEX = r'www\.(.*)\.pl'
+    REGEX = [r'www\.(.*)\.pl',r'www\.(.*)\.net']
     options = webdriver.ChromeOptions()
     options.add_argument("--headless")  
     options.add_argument("--disable-gpu")
@@ -39,6 +39,7 @@ class ElectroImporter:
     options.add_argument("--disable-background-networking") 
     options.add_argument("--disable-sync")  
     options.add_argument("--disable-translate") 
+
     def __init__(self,url):
         self.url = url
         self.driver = webdriver.Chrome(options=self.options)
@@ -46,12 +47,15 @@ class ElectroImporter:
 
     @staticmethod
     def get_title(url,pattern):
-        match = re.search(pattern,url)
-        if match:
-            text = match.group(1)    
-        if text:
-            return text
-        return "deferror"
+        for patt in pattern:
+            match = re.search(patt,url)
+            if match:
+                text = match.group(1)  
+            else:
+                continue
+            if text:
+                return text
+            return "deferror"
         
 
     def get_price(self):
