@@ -4,7 +4,7 @@ import sqlite3
 import threading
 import time
 from dbhandler import DbHandler
-from main import ElectroImporter  
+from fetcher import ElectroImporter  
 from PIL import Image
 from plyer import notification  
 from pystray import MenuItem as item, Icon
